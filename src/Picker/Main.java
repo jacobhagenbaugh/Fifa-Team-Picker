@@ -26,12 +26,12 @@ public class Main {
         
         // Read file, then store each new line item in the ArrayList.
         try {
-            Scanner s = new Scanner(new File("teams.txt"));
+            Scanner s = new Scanner(Main.class.getResourceAsStream("teams.txt"));
             
             while (s.hasNext()) {
                 teams.add(s.nextLine());
             }
-        } catch (FileNotFoundException ex) {
+        } catch (Exception ex) {
             System.out.println("File Not Found");
         }
         
@@ -47,7 +47,7 @@ public class Main {
         String msg1 = player1 + ": " + teams.get(r.nextInt(teams.size()));
         String msg2 = player2 + ": " + teams.get(r.nextInt(teams.size()));
         Component frame = null;
-        ImageIcon icon = new ImageIcon("icon2.png");
+        ImageIcon icon = new ImageIcon(Main.class.getResource("icon2.png"));
         JOptionPane.showMessageDialog(frame, msg1 + "\n" + msg2, "Fifa Team Picker", PLAIN_MESSAGE, icon);
     }
 }
